@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px limegreen, 0 0 10px limegreen, 0 0 15px limegreen, 0 0 20px limegreen;
+    }
+
+    50% {
+        box-shadow: 0 0 10px limegreen, 0 0 20px limegreen, 0 0 30px limegreen, 0 0 40px limegreen;
+    }
+
+    100% {
+        box-shadow: 0 0 5px limegreen, 0 0 10px limegreen, 0 0 15px limegreen, 0 0 20px limegreen;
+    }
+}
+
+@keyframes inflate {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+        /* Inflate to 120% */
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px crimson, 0 0 15px crimson;
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px crimson, 0 0 30px crimson;
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px crimson, 0 0 15px crimson;
+    }
+}
+
+/* Pulsating class */
+
+@keyframes shrinkBorder {
+    0% {
+        border-width: 10px;
+        transform: scale(1);
+    }
+
+    50% {
+        border-width: 1px;
+        /* Shrinks to 1px */
+        transform: scale(0.7);
+        /* Optional: Shrink the content a bit */
+    }
+
+    100% {
+        border-width: 10px;
+        /* Return to original border width */
+        transform: scale(1);
+        /* Reset the content size */
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0px rgba(255, 0, 0, 0.7);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0px rgba(255, 0, 0, 0.7);
+    }
+}
+
+.obesse {
+    animation: heartbeat 1s ease-in-out infinite;
+}
+
+.normal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    background-color: limegreen;
+    width: auto;
+    height: 35px;
+    animation: glow 1.5s ease-in-out infinite;
+    /* Glowing effect */
+}
+
+.over {
+    animation: pulsate 1s infinite;
+    /* Loop the animation */
+}
+
+.under {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    color: black;
+    border-radius: 5px;
+    background-color: gold;
+    width: auto;
+    height: 35px;
+    border: 10px solid transparent;
+    animation: shrinkBorder 1.3s ease-in-out forwards infinite;
+    /* Apply animation */
+}
+
+.bmi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .bmiContainer {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        width: 500px;
+        background-color: #403F4C;
+        border-radius: 7px;
+        box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.35);
+        padding: 20px;
+        position: relative;
+
+        h1 {
+            color: rgb(28, 190, 28);
+            font-size: 32px;
+            padding: 10px;
+        }
+
+        hr {
+            width: 90%;
+        }
+
+        .bmiBox {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            width: 80%;
+            gap: 10px;
+            margin-top: 10px;
+
+            p {
+                color: white;
+                font-size: 16px;
+            }
+
+            input {
+                padding: 5px;
+                width: 100%;
+                border-radius: 5px;
+                border: none;
+            }
+
+            .bmiBtn {
+                width: 100%;
+                background-color: orangered;
+                padding: 5px;
+                border: 0;
+                opacity: 0.8;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;
+                box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.35);
+                transition: box-shadow 0.3s ease;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .reset {
+                width: 20%;
+                background-color: purple;
+                opacity: 0.8;
+                padding: 5px;
+                border: none;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.35);
+                transition: box-shadow 0.05s ease;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .reset.pop-up,
+            .bmiBtn.pop-up {
+                transform: scale(1.05);
+                /* Increase the size of the button */
+                opacity: 1;
+                /* Optional: Make it fully opaque during the pop-up effect */
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+                color: rgb(80, 255, 80) !important;
+                /* Add green text color with !important to override any conflicting styles */
+            }
+
+            .reset:active {
+                transform: scale(0.75);
+                /* Slight shrink effect on button press */
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .bmiBtn:active {
+                transform: scale(0.75);
+                /* Slight shrink effect on button press */
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+}

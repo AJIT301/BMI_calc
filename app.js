@@ -21,6 +21,7 @@ const resetBtn = document.querySelector('.reset');
 const result = document.querySelector('.result');
 result.classList.remove("result");
 let bmi;
+let timeout;
 calculateBtn.addEventListener('click', _ => {
     result.classList.remove("under", "obesse", "over", "normal");
     if (isNaN(parseFloat(height.value)) && !isNaN(parseFloat(weight.value))) {
@@ -95,7 +96,7 @@ calculateBtn.addEventListener('click', _ => {
         } else {
             result.classList.remove("under", "obesse", "over", "normal");
             result.classList.add("obesse");
-            result.innerText = `Obese🍔: ${bmi.toFixed(2)}`;
+            result.innerText = `Obese 🍔: ${bmi.toFixed(2)}`;
             result.style.width = "auto";
             result.style.height = "35px";
             result.style.backgroundColor = "black";
@@ -105,10 +106,12 @@ calculateBtn.addEventListener('click', _ => {
             result.style.padding = "5px 10px";
             result.style.color = 'white';
             result.style.borderRadius = "5px";
-            setTimeout(() => {
+            //po 2 sekundziu stabdo animacija
+            timeout = setTimeout(stop, 2000);
+            function stop() {
                 result.classList.remove("obesse");
                 result.style.color = 'crimson';
-            }, 2000); //po 2 sekundziu stabdo animacija
+            }
         }
         resetBtn.style.display = 'block';
     }
@@ -122,6 +125,7 @@ resetBtn.addEventListener('click', _ => {
     result.style.color = 'white';
     resetBtn.style.display = 'none';
     result.classList.remove("under", "obesse", "over", "normal");
+    clearTimeout(timeout);
 });
 
 console.log(parseFloat(height.value));

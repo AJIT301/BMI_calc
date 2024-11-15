@@ -108,14 +108,14 @@ calculateBtn.addEventListener('click', _ => {
             setTimeout(() => {
                 result.classList.remove("obesse");
                 result.style.color = 'crimson';
-            }, 2000); // Removes the heartbeat effect after 3 seconds
+            }, 2000); //po 2 sekundziu stabdo animacija
         }
         resetBtn.style.display = 'block';
     }
 });
 
 resetBtn.addEventListener('click', _ => {
-    result.style = "";
+    result.style = '';
     height.value = '';
     weight.value = '';
     result.innerText = 'Provide a valid height and weight';

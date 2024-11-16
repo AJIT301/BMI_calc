@@ -2,10 +2,10 @@
 
 
 BMI calculator JS/CSS by: 
-Vaidas Adomavičius
-Artūras Jevtuchovas 
-Modestas Streleckis
-Sandra Stonytė
+Vaidas Adomavičius,
+Artūras Jevtuchovas,
+Modestas Streleckis,
+Sandra Stonytė.
 
 
 Simple application to determine your BMI status.

@@ -1,5 +1,12 @@
-# BMI_calc
-BMI calculator JS/CSS
+# BMI_calc (Baltic Technologijų Institutas)
+
+
+BMI calculator JS/CSS by: 
+Vaidas Adomavičius
+Artūras Jevtuchovas 
+Modestas Streleckis
+Sandra Stonytė
+
 
 Simple application to determine your BMI status.
 
